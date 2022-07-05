@@ -1,4 +1,4 @@
-// Check if class can be role
+// Check if class can play the given role
 const classRoleCheck = (charClass, role) => {
     switch (charClass) {
         case 'warrior':
@@ -50,8 +50,9 @@ const wowChar = {
         let newFirstWord = firstWord[Math.floor(Math.random() * firstWord.length)];
         let middleWords;
 
-        let roleCheck = classRoleCheck(randomClass, newRole);
-        // Set middle words based on first words
+        let roleCheck = classRoleCheck(randomClass, newRole); // Boolean, true if class can play given role
+
+        // Set middle words based on first words and if the class can play the role
         switch (newFirstWord) {
             case 'Your':
                 if (roleCheck) {
@@ -75,6 +76,7 @@ const wowChar = {
                 }
                 break;
         }
+        // Removed state string if class cant play given role
         return (roleCheck) ? `${newFirstWord} ${randomClass} ${middleWords} ${newState} ${newRole}` : `${newFirstWord} ${randomClass} ${middleWords} ${newRole}`;
     }
 }
